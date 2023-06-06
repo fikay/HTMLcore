@@ -1,7 +1,12 @@
 body{
     margin: 0%;
-    background-color: #2F3035;
+    /* background-color: #2F3035; */
     height: 100vh;
+    background-image: url(/images//background-adare-restaurant.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
 }
 
 .container{
@@ -14,8 +19,8 @@ body{
 }
 header{
     height: 90px;
-    margin: 0;
-    background-color: #2F3035;
+    margin-top: 10px;
+    /* background-color: #2F3035; */
     text-align: center;
 }
 
@@ -24,17 +29,29 @@ header>img{
 }
 nav{
     height: 40px;
-    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(8, 7, 7, 0.384);
+}
+
+nav>a{
+    color: rgba(255, 255, 255, 0.699);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
 }
 
 main{
     display: flex;
     flex-direction: column;
-     height: 400px;
-    background-color:#2F3035;
+    height: 400px;
+    /* background-color:#2F3035; */
     text-align: center;
     justify-content: center;
     align-items: center;
+    flex:3
     
 }
 main>h1{
@@ -46,8 +63,18 @@ main>p{
  color: white;
 }
 
+main>a{ 
+    color: white;
+    text-transform: uppercase;
+}
+
 footer{
     margin-top: auto;
      height: 40px;
-    background-color:beige;
+    background-color:rgba(12, 12, 10, 0.397);
+    padding: 20px;
+    text-align: center;
+}
+footer>p{
+    color: rgba(255, 255, 255, 0.479);
 }
