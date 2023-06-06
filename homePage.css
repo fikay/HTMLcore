@@ -1,0 +1,53 @@
+body{
+    margin: 0%;
+    background-color: #2F3035;
+    height: 100vh;
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    height: 90px;
+    margin: 0;
+    background-color: #2F3035;
+    text-align: center;
+}
+
+header>img{
+   overflow: hidden;
+}
+nav{
+    height: 40px;
+    background-color: red;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+     height: 400px;
+    background-color:#2F3035;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+main>h1{
+    color: white;
+    font-size: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+main>p{
+ color: white;
+}
+
+footer{
+    margin-top: auto;
+     height: 40px;
+    background-color:beige;
+}
