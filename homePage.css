@@ -68,6 +68,16 @@ main>a{
     text-transform: uppercase;
 }
 
+section{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type:mandatory;
+}
+
+section>iframe{
+     margin: 20px;
+     scroll-snap-align: start;
+}
 footer{
     margin-top: auto;
      height: 40px;
