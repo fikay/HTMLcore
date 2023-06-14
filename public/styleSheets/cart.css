@@ -1,0 +1,12 @@
+#contain{
+    background-color: #d4ddd4;
+    min-height: 100vh;
+}
+
+section{
+    max-width: 75%;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}

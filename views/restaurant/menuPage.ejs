@@ -1,60 +1,62 @@
 <%-layout('./layout/boilerPlate.ejs')%>
-<link rel="stylesheet" href="/styleSheets/menuPage.css">
-<div  id="container" class="container-fluid">
-    <section class="d-flex flex-column ">                        
-        <div class="card">
-            <div class="infos">
-                <div class="image">
-                    <img class="img-fluid" src="/jollofrice.jpg" alt="">
-                </div>
-                <div class="info">
-                    <div>
-                        <p class="name">
-                            Jollof Rice
-                        </p>
-                        <p class="function">
-                        description
-                        </p>
-                    </div>
-                    <div class="stats ">
-                            <p class="flex flex-col">
-                                price
-                                <span class="state-value">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
-                                    <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
-                                    </svg> 34
-                                </span>
-                            </p>
-                            <p class="flex">
-                            rating
-                                <span class="state-value">
-                                    455
-                                </span>
-                            </p>
-                
-                    </div>
-                    
-                </div>
-            <div id="quantity" class="d-flex align-items-center justify-content-evenly ">
-                    <button class="addQuantity">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                    </svg>
-                    </button>
-                    <input placeholder="Qty" type="number" name="text" class="input mx-3" autocomplete="off">
-                    <button class="addQuantity">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z"/>
-                    </svg>
-                    </button>
-            </div>
-            </div>
+<link rel="stylesheet" href="/styleSheets/menuPage.css" />
 
-            <button class="request" type="button">
-                    Add to Cart
-                </button>
+<div id="container" class="container-fluid">
+  <section class="d-flex flex-column">
+    <% menuItems.forEach((index,i) => {%>
+    <div id="<%= index.id %>" class="card" data-key="<%= index.id %>">
+      <div class="infos">
+        <div class="image">
+          <img class="img-fluid" src="/jollofrice.jpg" alt="" />
         </div>
-
-    </section>
-
+        <div class="info">
+          <div>
+            <p class="name"><%= index.name %></p>
+            <p class="function"><%= index.description %></p>
+          </div>
+          <div class="stats">
+            <p class="flex flex-col">
+              price
+              <span class="state-value"> <%= index.price %> </span>
+            </p>
+            <p class="flex">
+              rating
+              <span class="state-value"> <%= index.rating %> </span>
+            </p>
+          </div>
+        </div>
+        <div
+          
+          data-value="<%= index.id %>"
+          class=" buttoncontainer  d-flex align-items-center justify-content-evenly "
+        >
+          <button id="add<%= index.id %>" class="addition addQuantity">
+           +
+          </button>
+          <input
+            id="display<%=index.id%>"
+            placeholder="Qty"
+            type="number"
+            min="0"
+            max="10"
+            value="0"
+            class="input mx-3"
+          />
+          <button id="sub<%=index.id%>" class="subtraction addQuantity">
+            -
+          </button>
+        </div>
+      </div>
+      <form action="/addTocart/<%= index.id %>" method="post">
+        <input type="hidden" name="id" value="<%= index.id %>" />
+        <input type="hidden" name="name" value="<%= index.name %>" />
+        <input type="hidden" name="price" value="<%= index.price %>" />
+        <input id="final-quantity<%=index.id%>" type="hidden" name="quantity" />
+        <button class="request" type="submit">Add to Cart</button>
+      </form>
+    </div>
+    <% });%>
+  </section>
 </div>
+
+<script src="/javascripts/menuPage.js"></script>

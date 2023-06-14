@@ -117,6 +117,22 @@ section{
 }
 
 .addQuantity{
-     border: none;
-    background: none;
+    width: 46px;
+    height: 36px;
+    border-radius:50%;
+}
+
+@media(max-width:1366px){
+    .stats{
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    .request{
+        width: 25%;
+        margin-left: 75%;
+        text-align: center;
+    }
+    .d-flex{
+        flex-direction: column;
+    }
 }
