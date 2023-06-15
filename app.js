@@ -45,6 +45,11 @@ app.listen(3000, () => {
   console.log("here");
 });
 
+app.use((req,res, next)=>{
+  res.locals.cartInventory = req.session.cart
+
+  next()
+})
 
 app.get("/homepage", (req, res) => {
   res.render("restaurant/homePage");
@@ -61,7 +66,6 @@ app.get("/menu", async (req, res) => {
 app.post("/addTocart/:id", (req, res) => {
   // console.log(req.body)
   const{id} = req.params
- console.log(req.session.cart.length);
  if(req.session.cart.length === 0 )
  {
    req.session.cart.push(req.body)
@@ -84,6 +88,7 @@ app.post("/addTocart/:id", (req, res) => {
     req.session.cart.push(req.body);
    }
  }
+ 
 
  console.log(req.session.cart);
   // console.log(req.session.cart)
